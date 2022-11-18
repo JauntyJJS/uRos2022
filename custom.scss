@@ -1,0 +1,79 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:600,600i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
+
+$font-family-sans-serif: 'Montserrat', sans-serif !default;
+
+// headings
+$presentation-heading-font: 'Josefin Sans', sans-serif !default;
+
+$presentation-font-size-root: 1.4rem !default;
+$presentation-h2-font-size: 2.75rem !default;
+
+
+/*-- scss:rules --*/
+
+#title-slide {
+  text-align: left;
+}
+
+#title-slide .title{
+  font-size: 4.2rem; 
+}
+
+#title-slide .subtitle{
+  font-size: 2rem; 
+}
+
+#title-slide .quarto-title-authors {
+  display: flex;
+  justify-content: left;
+  font-size: 2rem;
+
+  .quarto-title-author {
+    padding-left: 0em;
+    padding-right: 0em;
+    width: 100%;
+  }
+}
+
+#title-slide .institute, #title-slide .quarto-title-affiliation{
+  font-style: italic;
+  font-size: 80%;
+}
+
+#title-slide p.author::before, #title-slide div.quarto-title-author::before {
+  content: "";
+  display: block;
+  border: none;
+  background-color: $body-color;
+  color: $body-color;
+  height: 3px;
+  margin-bottom: 1em;
+}
+
+.slide-menu-button {
+  left: 10px !important;
+  bottom: 10px !important;
+}
+
+.cell-output {
+  border: 1px solid $body-color;
+  border-radius: 4px;
+}
+
+.center-x {
+  text-align: center;
+}
+
+.center-xy {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%), translateX(-50%);
+  transform: translateY(-50%), translateX(-50%);
+}
+

@@ -1,0 +1,241 @@
+---
+title: |
+  Viewing Multiple Interactive Plots with [`plotly`](https://plotly.com/r/) And [`trelliscopejs`](https://hafen.github.io/trelliscopejs/)
+subtitle: For [uRos2022](https://r-project.ro/conference2022.html) Conference
+author: Jeremy Selva [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS) [`r fontawesome::fa(name = "linkedin")`](https://www.linkedin.com/in/jeremy-selva-085b9112a/) [`r fontawesome::fa(name = "link")`](https://jeremy-selva.netlify.app/) [`r fontawesome::fa(name = "twitter")`](https://twitter.com/JauntyJJS)
+institute: jauntyjjs-nhs-r-2022.netlify.app
+format: 
+  revealjs:
+    navigation-mode: linear
+    progress: false
+    controls: true
+    scrollable: true
+    mouse-wheel: true
+    slide-number: true
+    theme: [custom.scss]
+title-slide-attributes:
+    data-background-image: "images/title.JPG"
+    data-background-size: contain
+    data-background-opacity: "1"
+---
+
+```{r setup, include=FALSE}
+library(fontawesome)
+```
+
+## Introduction to Lipids
+
+Lipids are organic compounds that are mostly insoluble in polar solvents like water. 
+
+The most common ones are cholesterol and triglycerides in blood lipid panel test.
+
+
+![](images/Lipids.JPG){fig-alt="First figure on the top left is a picture of a trained medical professional drawing blood samples from a person's arm symbolising a blood lipid panel test." fig-align="center"}
+
+::: aside
+Blood sample image from [brgfx](https://www.freepik.com/vectors/cell-membrane)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+:::
+
+## How Lipids are measured (Targeted Lipidomics)
+
+![](images/Targeted_Lipidomics.JPG){fig-alt="Figure showing the workflow of how lipids are measured in a targeted lipidomics settings. Samples are first converted to lipid extracts. From a given list of transitions to measure, lipids in the extracts are measured using liquid chromatography and mass spectrometry. In the example, a transition from an internal standard Ceramide d eighteen one twelve zero is measured. This results in chromatogram peaks which the user needs to integrate the area under curve. In the case of the internal standard Ceramide d 18 1 12 0, it is four hundred and seventy nine thousand and twenty five. After the peaks are integrated for all samples and transtions, the peak area data are exported for further processing." fig-align="center"}
+
+::: aside
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+## Quality Control (QC) Samples
+
+QC samples helps to check the severity of variation from external sources such as contaminant ions. 
+
+We want to keep molecules that gives a low variation on the QC samples. 
+
+Plots are exported as pages in a pdf file.
+
+![](images/Injection_Sequence_Plot.JPG){fig-alt="Figure showing an injection sequence of internal standard Ceramide d eighteen one twelve zero as a bar chart. The y axis is peak area while the x axis is the injection sequence. The different colours on the bar chart repsresent the different QC sample type. The important ones are the ones in blue representing the BQC. The coefficient of variation of the BQC is around 0.085 which is a low value. Hence, the internal standard Ceramide d eighteen one twelve zero has a low interference from unwanted sources. This injection sequence bar chart is exported as a pdf file." fig-align="center"}
+
+::: aside
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+## Motivation for using [`plotly`](https://plotly.com/r/) and [`trelliscopejs`](https://hafen.github.io/trelliscopejs/)
+
+Today's targeted lipidomics workflow can measure up to a few hundred molecules. 
+
+This gives a pdf file of over 500 pages. 
+
+Looking at these static plot individually to gain insights is tedious.
+
+<br>
+
+![](images/Motivation1.JPG){fig-alt="Figure showing an injection sequence" fig-align="center"}
+
+::: aside
+
+Images by [Amonrat Rungreangfangsai](https://www.vecteezy.com/members/amy1313)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+## Motivation for using [`plotly`](https://plotly.com/r/) and [`trelliscopejs`](https://hafen.github.io/trelliscopejs/)
+
+::: columns
+
+::: {.column width="48%"}
+
+Out of > 500 molecules,
+
+-    Can I have more info about the outlying samples in the red box ?
+-    How many Ceramides have BQC CV over 20% ?
+-    Can you plot the same data as a Raincloud Plot ?
+
+:::
+
+::: {.column width="50%"}
+
+![](images/Motivation2.JPG){fig-alt="Figure showing an injection sequence" fig-align="center"}
+
+:::
+
+:::
+
+::: aside
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+
+## Motivation for using [`plotly`](https://plotly.com/r/) and [`trelliscopejs`](https://hafen.github.io/trelliscopejs/)
+
+::: columns
+
+::: {.column width="50%"}
+
+[Shiny](https://shiny.rstudio.com/) was considered but
+
+- Lack expertises to maintain a secure web server to run [Shiny](https://shiny.rstudio.com/) applications.
+  
+- Cannot expect collaborators/managers to install/run R packages and code to rebuild the [Shiny](https://shiny.rstudio.com/) application just to view the results.
+
+Use [`plotly`](https://plotly.com/r/) to make plots interactive.
+
+Use[`trelliscopejs`](https://hafen.github.io/trelliscopejs/) to explore interactive plots in an effective way and results distribution.
+
+:::
+
+::: {.column width="50%"}
+
+![](images/Motivation4.JPG){fig-alt="Figure showing the a workflow using plotly and trelliscopejs. plotly and trelliscopejs, represented by ther logos, are used to create a folder called Dilution Plot Folder. The Dilution Plot Folder contains a appfile folder, a lib folder and a html file call index. The folder is then compressed into a zip folder called Dilution Plot Folder." fig-align="center"}
+
+:::
+
+:::
+
+::: aside
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+---
+
+```{=html}
+<iframe width="1000" height="600" src="https://jauntyjjs.github.io/Trelliscopejs_In_Quarto_Supplementary1/" title="Quarto Documentation" ></iframe>
+```
+
+::: aside
+
+Embedded trelliscopejs results in [`r fa(name = "link")`](https://jauntyjjs.github.io/Trelliscopejs_In_Quarto_Supplementary1/) [`r fa(name = "github")`](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Supplementary1)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+---
+
+## Guidelines
+
+A walk through example using Quarto is created on the below [GitHub page](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Example).
+
+![](images/Walkthrough.JPG){fig-alt="Figure shows a walk through guide to create a Quarto interactive document with the use of plotly and trelliscopejs."}
+
+::: aside
+
+Walk through page in [`r fa(name = "link")`](https://jauntyjjs.github.io/Trelliscopejs_In_Quarto_Example/) [`r fa(name = "github")`](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Example)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+## Examples
+
+Exported examples are found under the [Releases](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Example/releases) section in the below [GitHub page](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Example).
+
+<br>
+
+![](images/Distribution3.JPG){fig-alt="Figure showing a GitHub page highlighting where the Releases section is. Double clicking on the Releases section will bring users to the exported examples which can be downloaded as zip files." fig-align="center"}
+
+::: aside
+
+Walk through GitHub page in [`r fa(name = "github")`](https://github.com/JauntyJJS/Trelliscopejs_In_Quarto_Example)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
+
+## References
+
+::: columns
+
+::: {.column width="50%"}
+
+`trelliscopejs` Examples
+
+- [Pokemon and TrelliscopeJS](https://ryanhafen.com/blog/pokemon/)
+
+- [The Mountain Goats with `trelliscopejs`](https://www.rostrum.blog/2019/06/20/goat-scope)
+
+`trelliscopejs` Presentation
+
+- [rstudio::conf 2017](https://www.rstudio.com/resources/rstudioconf-2017/trelliscopejs/)
+    - [Slides](https://slides.com/hafen/trelliscopejs)
+- [useR! 2022](https://www.youtube.com/watch?v=TgFJrfSEKuQ)
+    - See talk at around 54.55
+    - [Slides](https://github.com/agstn/UseR2022_dashboards)
+
+Thank you and enjoy the conference...
+
+:::
+
+::: {.column width="50%"}
+
+![](images/business-team.JPG){fig-alt="Figure showing two workers praising the presenter for providing a good visualisation report." fig-align="center"}
+
+:::
+
+:::
+
+::: aside
+
+Images by [Amonrat Rungreangfangsai](https://www.vecteezy.com/members/amy1313)
+
+jauntyjjs-nhs-r-2022.netlify.app
+[`r fontawesome::fa(name = "link")`](https://jauntyjjs-nhs-r-2022.netlify.app) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/NHS-R2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/NHS-R2022/index.pdf)
+
+:::
