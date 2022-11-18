@@ -1,9 +1,9 @@
 ---
 title: |
   Viewing Multiple Interactive Plots with [`plotly`](https://plotly.com/r/) And [`trelliscopejs`](https://hafen.github.io/trelliscopejs/)
-subtitle: For [uRos2022](https://r-project.ro/conference2022.html) Conference
+subtitle: For [uRos2022](https://r-project.ro/conference2022.html) Conference [`r fontawesome::fa(name = "link")`](https://r-project.ro/conference2022.html) [`r fontawesome::fa(name = "twitter")`](https://twitter.com/uRosconf)
 author: Jeremy Selva [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS) [`r fontawesome::fa(name = "linkedin")`](https://www.linkedin.com/in/jeremy-selva-085b9112a/) [`r fontawesome::fa(name = "link")`](https://jeremy-selva.netlify.app/) [`r fontawesome::fa(name = "twitter")`](https://twitter.com/JauntyJJS)
-institute: jauntyjjs.github.io/uRos2022
+institute: jauntyjjs.github.io/uRos2022 [`r fontawesome::fa(name = "link")`](https://jauntyjjs.github.io/uRos2022) [`r fontawesome::fa(name = "github")`](https://github.com/JauntyJJS/uRos2022) [`r fontawesome::fa(name = "file-pdf")`](https://jauntyjjs.github.io/uRos2022/index.pdf)
 format: 
   revealjs:
     navigation-mode: linear
