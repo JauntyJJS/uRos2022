@@ -151,7 +151,7 @@ jauntyjjs.github.io/uRos2022
 
 Use [`plotly`](https://plotly.com/r/) to make plots interactive.
 
-Use[`trelliscopejs`](https://hafen.github.io/trelliscopejs/) to explore interactive plots in an effective way and results distribution.
+Use [`trelliscopejs`](https://hafen.github.io/trelliscopejs/) to explore interactive plots in an effective way and results distribution.
 
 :::
 
